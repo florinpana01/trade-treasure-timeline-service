@@ -31,8 +31,9 @@ export class ProductController {
         this.productService.update(product.id, product);
     }
     @EventPattern('product_deleted')
-    async delete(id) {
+    async delete(id: number) {
         console.log("product_deleted", id);        
         this.productService.delete(id);
+        return "product deleted from timeline";
     }
 }

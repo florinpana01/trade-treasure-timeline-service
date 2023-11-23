@@ -5,9 +5,23 @@ import { ProductController } from './product/product.controller';
 import { ProductModule } from './product/product.module';
 import { LikeController } from './like/like.controller';
 import { LikeModule } from './like/like.module';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {Product} from './product/product.entity';
 
 @Module({
-  imports: [ProductModule],
+  imports: [
+    TypeOrmModule.forFeature([Product]),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: '35.233.2.49',
+      port: 3306,
+      username: 'root',
+      password: 'Totamealand1983',
+      database: 'tradetreasure-timeline',
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+    ProductModule],
   controllers: [AppController],
   providers: [AppService],
 })

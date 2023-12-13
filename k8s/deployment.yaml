@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeline-service
+spec: 
+  selector:
+    matchLabels: 
+      app: timeline-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: timeline-service
+    spec: 
+      containers:
+        - name: timeline-service
+          image: florinpana01/tradetreasure-timeline-service-repository
+          ports:
+            - containerPort: 8000

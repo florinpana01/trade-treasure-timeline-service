@@ -8,7 +8,7 @@ export class ProductController {
 
     }
 
-    @EventPattern('product_request_all')
+    @EventPattern('timeline_request_all')
     async all() {
         return this.productService.all();
     }
